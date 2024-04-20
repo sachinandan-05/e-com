@@ -1,6 +1,7 @@
 
 import dotenv from "dotenv"
 import app from "./app.js";
+import { connectDB } from "./db/index.js";
 
 dotenv.config(
     {
@@ -10,7 +11,7 @@ dotenv.config(
 app.get("/",(req,res)=>{
     res.send("welcome")
 })
-
+connectDB()
 
 app.listen(process.env.PORT || 8080 ,()=>{
     console.warn( `app is lising on port: ${process.env.PORT}`);
