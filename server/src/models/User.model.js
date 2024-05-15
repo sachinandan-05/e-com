@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema({
     
     profilePic:{
         type:String
+    },
+    role:{
+        type:String,
+        default:"GENERAL"
+
     }
 
 },{timestamps:true})
@@ -55,6 +60,7 @@ userSchema.methods.createAccessToken=async function(){
     )
 
 }
+
 
 
 
