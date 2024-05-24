@@ -20,12 +20,14 @@ app.use(express.urlencoded({extended:true,limit:"50mb"}))
 app.use(express.static("public"))
 //import routes
 import userRouter from "./routers/user.route.js"
+import productRouter from "./routers/product.route.js";
 
 
 
 //route Declaration
 
 app.use("/api/v1/user",userRouter)
+app.use("/api/v1/product",productRouter)
 
 
 export default app ;

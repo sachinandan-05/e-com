@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 
     
     profilePic:{
-        type:String
+        type:[]
     },
     role:{
         type:String,
@@ -60,7 +60,6 @@ userSchema.methods.createAccessToken=async function(){
     )
 
 }
-
 
 
 

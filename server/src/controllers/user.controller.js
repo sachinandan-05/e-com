@@ -20,16 +20,13 @@ const generateAccessToken= async (userId)=>{
 
 }
 
-
-
-
-
 const signUp = async(req,res)=>{
 
-    const profilePic=req.file
+    // const profilePic=req.file
     
-        const {username,email,password}=req.body
+        const {username,email,password,profilePic}=req.body
         // console.log(username);
+        console.log(username,email,password,profilePic)
 
         const alredyExist=await User.findOne({email})
         console.log(alredyExist)
@@ -57,16 +54,16 @@ const signUp = async(req,res)=>{
             throw new apiError(404,"password  is required")
             
         }
-        const localpathOfprofile=req.file?.path
+        // const localpathOfprofile=req.file?.path
         
-        // console.log("request:",req)
-        console.log("localpath :",localpathOfprofile)
+        // // console.log("request:",req)
+        // console.log("localpath :",localpathOfprofile)
 
-        if (localpathOfprofile) {
-            var profile= await uploadOnCloudinary(localpathOfprofile)
-        console.log("url from cloudinary",profile.url)
+        // if (localpathOfprofile) {
+        //     var profile= await uploadOnCloudinary(localpathOfprofile)
+        // console.log("url from cloudinary",profile.url)
             
-        }
+        // }
 
 
         
@@ -75,7 +72,7 @@ const signUp = async(req,res)=>{
                 username:username,
                 email:email,
                 password:password,
-                profilePic:(profile?.url || "") ,
+                profilePic:(profilePic || "") ,
                 role:"GENERAL"
             
     
